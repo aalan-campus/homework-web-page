@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #ec6969;
+  color: #d9e7ff;
   background: #000000;
   min-height: 100vh;
 }
@@ -16,39 +16,44 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #ffffff 0%, #e8edf7 100%);
+  background: radial-gradient(circle at top right, rgba(44, 112, 255, 0.2), transparent 32%),
+    linear-gradient(180deg, #000010 0%, #00081a 100%);
   z-index: -1;
 }
 
 .page-wrapper {
   display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
   padding: 40px 20px 20px;
 }
 
 .main-content,
 .sidebar {
-  border-radius: 18px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  background: rgba(8, 24, 56, 0.95);
+  border: 1px solid rgba(79, 147, 255, 0.35);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
 }
 
 .main-content {
-  flex: 1 1 65%;
-  min-width: 380px;
-  max-width: 760px;
+  flex: 1 1 60%;
+  min-width: 340px;
+  max-width: 780px;
 }
 
 .sidebar {
-  flex: 0 0 240px;
-  min-width: 220px;
+  flex: 0 0 260px;
+  min-width: 240px;
+  background: rgba(7, 18, 42, 0.97);
 }
 
 header h1 {
   font-size: 2rem;
   margin-bottom: 18px;
+  color: #c7e2ff;
 }
 
 nav ul,
@@ -61,14 +66,15 @@ nav ul,
 
 nav ul li,
 .sidebar ul li {
-  background: #26ea67;
+  background: rgba(37, 102, 225, 0.18);
+  border: 1px solid rgba(68, 130, 255, 0.35);
   border-radius: 999px;
   padding: 10px 14px;
 }
 
 nav ul li a,
 .sidebar ul li a {
-  color: #0b3d91;
+  color: #d5ecff;
   font-weight: 600;
 }
 
@@ -81,32 +87,34 @@ nav ul li a,
 .about-box p {
   font-size: 1rem;
   line-height: 1.8;
+  color: #d3e7ff;
 }
 
 .about-box img {
   width: 100%;
   max-width: 260px;
   border-radius: 18px;
-  border: 3px solid #8c23dd;
+  border: 3px solid rgba(84, 145, 255, 0.6);
 }
 
 .sidebar h2 {
   margin-bottom: 16px;
   font-size: 1.2rem;
+  color: #c4e0ff;
 }
 
 .sidebar p {
   margin-top: 16px;
-  color: #cfdb21;
+  color: #a9c8ff;
 }
 
 footer {
   margin: 0 20px 24px;
   padding: 18px 24px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(11, 24, 58, 0.95);
   border-radius: 16px;
   text-align: center;
-  color: #f30a0a;
+  color: #92b8ff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -118,12 +126,13 @@ p {
 }
 
 a {
-  color: #0066cc;
+  color: #88b8ff;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #d8efff;
 }
 
 @media (max-width: 860px) {
