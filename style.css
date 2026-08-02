@@ -27,6 +27,7 @@ body::before {
   align-items: flex-start;
   gap: 24px;
   padding: 40px 20px 20px;
+  flex-wrap: wrap;
 }
 
 .main-content,
@@ -40,13 +41,13 @@ body::before {
 
 .main-content {
   flex: 1 1 60%;
-  min-width: 340px;
+  min-width: 0;
   max-width: 780px;
 }
 
 .sidebar {
   flex: 0 0 260px;
-  min-width: 240px;
+  min-width: 0;
   background: rgba(7, 18, 42, 0.97);
 }
 
@@ -93,6 +94,7 @@ nav ul li a,
 .about-box img {
   width: 100%;
   max-width: 260px;
+  height: auto;
   border-radius: 18px;
   border: 3px solid rgba(84, 145, 255, 0.6);
 }
@@ -140,7 +142,7 @@ a:hover {
   color: #d8efff;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .page-wrapper {
     flex-direction: column;
     align-items: stretch;
@@ -149,5 +151,30 @@ a:hover {
   .main-content,
   .sidebar {
     max-width: none;
+    width: 100%;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 20px 12px 12px;
+  }
+
+  .main-content,
+  .sidebar {
+    padding: 20px;
+  }
+
+  nav ul,
+  .sidebar ul {
+    flex-direction: column;
+  }
+
+  .about-box img {
+    max-width: 100%;
   }
 }
