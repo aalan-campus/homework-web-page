@@ -18,7 +18,26 @@
 					</ul>
 				</nav>
 				<section class="about-box">
-					<p>this is my web page</p>
+					<p id="mood-text">this is my web page</p>
+
+					<div class="interactions">
+						<div class="mood-row">
+							<button id="mood-button" type="button">Change my vibe</button>
+							<span id="status-badge" class="status-badge">Current vibe: chill</span>
+						</div>
+						<label class="input-label" for="nickname-input">Nickname:</label>
+						<input id="nickname-input" type="text" placeholder="Type your gamer name">
+					</div>
+
+					<div class="favorites-panel">
+						<h3>Favorite things</h3>
+						<ul id="favorite-list" class="favorite-list"></ul>
+						<div class="favorite-form">
+							<input id="favorite-input" type="text" placeholder="Add a favorite thing">
+							<button id="add-favorite-button" type="button">Add</button>
+						</div>
+					</div>
+
 					<img src="images/photo.png" alt="my usual profile icon" width="200" height="200">
 				</section>
 			</main>
@@ -33,5 +52,6 @@
 			</aside>
 		</div>
 		<footer id="page-footer">this is the footer of my page</footer>
+		<script src="script.js"></script>
 </body>
 </html>
