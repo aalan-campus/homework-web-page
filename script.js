@@ -79,10 +79,14 @@ const favoriteList = document.getElementById('favorite-list');
 
 let moodIndex = 0;
 
-const defaultFavorites = [];
-const sneakygamer7083Favorites = ['Minecraft', 'Terraria', 'YouTube', "coding", "BLT"];
+const defaultFavorites = ['Minecraft', 'Terraria', 'YouTube', 'Coding', 'BLT'];
+const sneakygamer7083Favorites = ['Minecraft', 'Terraria', 'YouTube', 'Coding', 'BLT', 'Pixel art'];
 
 function renderFavorites(items) {
+  if (!favoriteList) {
+    return;
+  }
+
   favoriteList.innerHTML = '';
   items.forEach((favorite) => addFavoriteItem(favorite));
 }
@@ -105,16 +109,22 @@ function updateMood() {
   root.style.setProperty('--page-glow', currentMood.glow);
   root.style.setProperty('--accent-color', currentMood.accent);
 
-  moodText.textContent = currentMood.text;
-  moodText.style.color = currentMood.textColor;
-  statusBadge.textContent = currentMood.badge;
-  statusBadge.style.borderColor = currentMood.accent;
-  statusBadge.style.background = `${currentMood.accent}22`;
-  statusBadge.style.color = '#f4f9ff';
+  if (moodText) {
+    moodText.textContent = currentMood.text;
+    moodText.style.color = currentMood.textColor;
+  }
+
+  if (statusBadge) {
+    statusBadge.textContent = currentMood.badge;
+    statusBadge.style.borderColor = currentMood.accent;
+    statusBadge.style.background = `${currentMood.accent}22`;
+    statusBadge.style.color = '#f4f9ff';
+  }
 }
 
 function getNicknameColor(value) {
-  if (!value.trim()) {
+  const trimmed = value.trim();
+  if (!trimmed) {
     return '#d3e7ff';
   }
 
@@ -127,17 +137,23 @@ function getNicknameColor(value) {
     f: '#ff6b6b'
   };
 
-  const firstLetter = value.trim().charAt(0).toLowerCase();
+  const firstLetter = trimmed.charAt(0).toLowerCase();
   return colorMap[firstLetter] || '#d3e7ff';
 }
 
 function updateNicknameStyle() {
+  if (!nicknameInput) {
+    return;
+  }
+
   const nickname = nicknameInput.value.trim();
   const nextColor = getNicknameColor(nickname);
   nicknameInput.style.borderColor = nextColor;
+  nicknameInput.style.boxShadow = `0 0 0 3px ${nextColor}22`;
 
-  const currentMood = moodStates[moodIndex];
-  moodText.style.color = currentMood.textColor;
+  if (moodText) {
+    moodText.style.color = moodStates[moodIndex].textColor;
+  }
 
   if (nickname.toLowerCase() === 'sneakygamer7083') {
     renderFavorites(sneakygamer7083Favorites);
@@ -148,7 +164,7 @@ function updateNicknameStyle() {
 
 function addFavoriteItem(text) {
   const itemText = text.trim();
-  if (!itemText) {
+  if (!itemText || !favoriteList) {
     return;
   }
 
@@ -172,25 +188,35 @@ function addFavoriteItem(text) {
   favoriteList.appendChild(listItem);
 }
 
-moodButton.addEventListener('click', () => {
-  moodIndex = (moodIndex + 1) % moodStates.length;
-  updateMood();
-});
+if (moodButton) {
+  moodButton.addEventListener('click', () => {
+    moodIndex = (moodIndex + 1) % moodStates.length;
+    updateMood();
+    updateNicknameStyle();
+  });
+}
 
-nicknameInput.addEventListener('input', updateNicknameStyle);
+if (nicknameInput) {
+  nicknameInput.addEventListener('input', updateNicknameStyle);
+}
 
-addFavoriteButton.addEventListener('click', () => {
-  addFavoriteItem(favoriteInput.value);
-  favoriteInput.value = '';
-  favoriteInput.focus();
-});
-
-favoriteInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
+if (addFavoriteButton) {
+  addFavoriteButton.addEventListener('click', () => {
     addFavoriteItem(favoriteInput.value);
     favoriteInput.value = '';
-  }
-});
+    favoriteInput.focus();
+  });
+}
+
+if (favoriteInput) {
+  favoriteInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      addFavoriteItem(favoriteInput.value);
+      favoriteInput.value = '';
+      favoriteInput.focus();
+    }
+  });
+}
 
 renderFavorites(defaultFavorites);
 updateMood();
