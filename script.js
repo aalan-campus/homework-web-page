@@ -80,7 +80,7 @@ const favoriteList = document.getElementById('favorite-list');
 let moodIndex = 0;
 
 const defaultFavorites = ['Minecraft', 'Terraria', 'YouTube', 'Coding', 'BLT'];
-const sneakygamer7083Favorites = ['Minecraft', 'Terraria', 'YouTube', 'Coding', 'BLT', 'Pixel art'];
+const sneakygamer7083Favorites = ['Minecraft', 'Terraria', 'YouTube', 'Coding', 'BLT'];
 
 function renderFavorites(items) {
   if (!favoriteList) {
