@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: #e9f3ff;
+  background: #07111f;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #07111f, #12304a);
+}
+
+.page-shell {
+  width: min(680px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.top-nav {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.top-nav a,
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #ffffff;
+  background: #2574a9;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.top-nav a[aria-current="page"] {
+  background: #54a4d8;
+}
+
+.content-panel {
+  padding: 28px;
+  border: 1px solid #3b6682;
+  border-radius: 14px;
+  background: rgba(7, 22, 37, 0.94);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #83d4e8;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 8px 0 12px;
+}
+
+.content-panel > p:not(.eyebrow) {
+  color: #bdd3e3;
+}
+
+form,
+.tip-section {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.field-group {
+  display: grid;
+  gap: 6px;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #527892;
+  border-radius: 7px;
+  padding: 11px;
+  color: #ffffff;
+  background: #0b1d2d;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(83, 190, 222, 0.35);
+  border-color: #6bc3df;
+}
+
+.error-message {
+  min-height: 1.2em;
+  margin: 0;
+  color: #ffaaa4;
+  font-size: 0.9rem;
+}
+
+.status-message {
+  min-height: 1.4em;
+  margin: 0;
+  color: #a8f0b0;
+  font-weight: 700;
+}
+
+.tip-section {
+  border-top: 1px solid #31516a;
+  padding-top: 18px;
+}

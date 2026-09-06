@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="page2.css">
+  <title>Page 2 - Form practice</title>
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="top-nav" aria-label="Page navigation">
+      <a href="index.html">Page 1</a>
+      <a href="page2.html" aria-current="page">Page 2</a>
+    </nav>
+
+    <section class="content-panel">
+      <p class="eyebrow">HTML and JavaScript practice</p>
+      <h1>Send a message</h1>
+      <p>Try the form validation below.</p>
+
+      <form id="practice-form" novalidate>
+        <div class="field-group">
+          <label for="name-input">Name</label>
+          <input id="name-input" name="name" type="text" autocomplete="name" required>
+          <p id="name-error" class="error-message"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="email-input">Email</label>
+          <input id="email-input" name="email" type="email" autocomplete="email" required>
+          <p id="email-error" class="error-message"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="message-input">Message</label>
+          <textarea id="message-input" name="message" rows="5" required></textarea>
+          <p id="message-error" class="error-message"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="favorite-input">Favorite game</label>
+          <input id="favorite-input" name="favorite" type="text">
+        </div>
+
+        <button type="submit">Submit form</button>
+        <p id="form-status" class="status-message" role="status"></p>
+      </form>
+
+      <section class="tip-section" aria-labelledby="tip-heading">
+        <h2 id="tip-heading">Programming joke</h2>
+        <button id="tip-button" type="button">Get a programming joke</button>
+        <p id="tip-result" class="status-message" role="status"></p>
+      </section>
+    </section>
+  </main>
+  <script src="page2.js"></script>
+</body>
+</html>
